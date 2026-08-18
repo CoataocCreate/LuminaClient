@@ -736,7 +736,6 @@ fun SettingsScreen() {
         PermissionDialog(
             onDismiss = { showPermissionDialog = false },
             onRequestPermission = {
-                NetworkOptimizer.openWriteSettingsPermissionPage(context)
                 showPermissionDialog = false
             }
         )
