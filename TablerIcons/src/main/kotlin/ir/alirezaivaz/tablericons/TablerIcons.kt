@@ -786,8 +786,6 @@ object TablerIcons {
     val BrandDeviantart = R.drawable.ic_brand_deviantart
     val BrandDigg = R.drawable.ic_brand_digg
     val BrandDingtalk = R.drawable.ic_brand_dingtalk
-    val BrandDiscord = R.drawable.ic_brand_discord
-    val BrandDiscordFilled = R.drawable.ic_brand_discord_filled
     val BrandDisney = R.drawable.ic_brand_disney
     val BrandDisqus = R.drawable.ic_brand_disqus
     val BrandDjango = R.drawable.ic_brand_django

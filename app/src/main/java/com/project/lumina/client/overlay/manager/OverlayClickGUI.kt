@@ -228,19 +228,6 @@ class OverlayClickGUI : OverlayWindow() {
                         val context = LocalContext.current
                         
                         Icon(
-                            painter = painterResource(id = R.drawable.discord_24),
-                            contentDescription = "Discord",
-                            tint = TheNotBackgroundColorForOverlayUi,
-                            modifier = Modifier
-                                .size(24.dp)
-                                .clickable { 
-                                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/6kz3dcndrN")).apply {
-                                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    }
-                                    context.startActivity(intent)
-                                }
-                        )
-                        Icon(
                             painter = painterResource(id = R.drawable.browser_24),
                             contentDescription = "Help",
                             tint = TheNotBackgroundColorForOverlayUi,

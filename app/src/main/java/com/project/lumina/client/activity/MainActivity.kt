@@ -79,8 +79,6 @@ import com.amplitude.android.Amplitude
 import com.amplitude.android.Configuration
 import com.amplitude.android.DefaultTrackingOptions
 import com.project.lumina.client.devtools.LogcatService
-import com.project.lumina.client.discord.PresenceStateManager
-import com.project.lumina.client.discord.RPCService
 import com.project.lumina.client.util.SessionManager
 import com.project.lumina.client.util.TrackUtil
 
@@ -221,9 +219,6 @@ class MainActivity : ComponentActivity() {
         
         LogcatService.checkAndStartIfEnabled()
 
-        PresenceStateManager.init(this)
-        RPCService.autoStartForClientMode(this)
-
         setContent {
             LuminaClientTheme {
                 CompositionLocalProvider(LocalOverscrollConfiguration provides null) {
@@ -238,7 +233,6 @@ class MainActivity : ComponentActivity() {
         super.onDestroy()
         ArrayListManager.releaseSounds()
         LogcatService.stopLogcatService()
-        RPCService.release(this)
         if (currentInstance == this) {
             currentInstance = null
         }

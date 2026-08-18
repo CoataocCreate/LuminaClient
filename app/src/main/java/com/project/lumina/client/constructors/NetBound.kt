@@ -30,7 +30,6 @@ import com.project.lumina.client.overlay.mods.TopCenterOverlayNotification
 import com.project.lumina.client.overlay.mods.SelectedMobDialogOverlay
 import com.project.lumina.client.game.module.impl.EntityRadarElement
 import com.project.lumina.client.R
-import com.project.lumina.client.discord.PresenceStateManager
 import com.project.lumina.client.service.Services
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -221,11 +220,6 @@ class NetBound(val luminaRelaySession: LuminaRelaySession) : ComposedPacketHandl
                     Log.i("GameSession", "LevelName: ${gameDataManager.getLevelName()}")
                     showToast("Welcome To Lumina V4", "Connected ${gameDataManager.getLevelName()}")
 
-                    val serverIp = Services.currentServerHostName
-                    if (serverIp.isNotEmpty()) {
-                        PresenceStateManager.onGameJoined(serverIp)
-                    }
-
                     /**
                     try {
                     blockMapping = blockMappingProvider.craftMapping(protocolVersion)
@@ -320,8 +314,6 @@ class NetBound(val luminaRelaySession: LuminaRelaySession) : ComposedPacketHandl
         SelectedMobsManager.resetDetections()
         SelectedMobsManager.resetOnDisconnect()
         startGameReceived = false
-
-        PresenceStateManager.onServerDisconnected()
 
         minimapEnabled = false
         MiniMapOverlay.setOverlayEnabled(false)

@@ -407,15 +407,6 @@ class KitsuGUI : OverlayWindow() {
                         val context = LocalContext.current
 
                         ModernActionButton(
-                            iconRes = R.drawable.discord_24,
-                            onClick = {
-                                openUrl("https://discord.gg/6kz3dcndrN", context)
-                            }
-                        )
-
-                        Spacer(modifier = Modifier.width(8.dp))
-
-                        ModernActionButton(
                             iconRes = R.drawable.browser_24,
                             onClick = {
                                 openUrl("https://projectlumina.netlify.app/", context)

@@ -185,12 +185,6 @@ class WClientUI : OverlayWindow() {
             
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 PremiumIconButton(
-                    iconRes = R.drawable.ic_discord,
-                    onClick = {
-                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://discord.gg/N2Gejr8Fbp")))
-                    }
-                )
-                PremiumIconButton(
                     iconRes = R.drawable.ic_web,
                     onClick = {
                         context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wclient.neocities.org/")))

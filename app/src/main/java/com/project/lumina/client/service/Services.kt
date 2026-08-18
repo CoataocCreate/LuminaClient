@@ -37,7 +37,6 @@ import com.project.lumina.relay.util.XboxIdentityTokenCacheFileSystem
 import com.project.lumina.relay.util.captureLuminaRelay
 import android.app.ActivityManager
 import com.project.lumina.client.remlink.TerminalViewModel
-import com.project.lumina.client.discord.PresenceStateManager
 import java.io.File
 import kotlin.concurrent.thread
 
@@ -84,8 +83,6 @@ class Services : Service() {
 
             isActive = true
             currentServerHostName = captureModeModel.serverHostName
-            PresenceStateManager.setServerInfo(captureModeModel.serverHostName, captureModeModel.serverPort)
-            PresenceStateManager.onRelayStarted()
 
             val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             val currentActivity = activityManager.appTasks
@@ -164,7 +161,6 @@ class Services : Service() {
                 isActive = false
                 RemisOnline = false
                 currentServerHostName = ""
-                PresenceStateManager.onRelayDisconnected()
                 luminaRelay?.disconnect()
                 thread?.interrupt()
                 thread = null
