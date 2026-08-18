@@ -24,7 +24,7 @@ import kotlin.random.Random
 
 class LuminaRelay(
     private val localAddress: LuminaAddress = LuminaAddress(getNativeDefaultIp(), getNativeDefaultPort()),
-    private val advertisement: BedrockPong = createNativeAdvertisement()
+    private val advertisement: BedrockPong? = createNativeAdvertisement()
 ) {
 
     companion object {
@@ -40,7 +40,7 @@ class LuminaRelay(
         @JvmStatic external fun getNativeDefaultPort(): Int
         @JvmStatic external fun getNativeRemoteIp(): String
         @JvmStatic external fun getNativeRemotePort(): Int
-        @JvmStatic external fun createNativeAdvertisement(): BedrockPong
+        @JvmStatic external fun createNativeAdvertisement(): BedrockPong?
     }
 
     val isRunning: Boolean
@@ -62,13 +62,13 @@ class LuminaRelay(
         this.remoteAddress = remoteAddress
 
         advertisement
-            .ipv4Port(localAddress.port)
-            .ipv6Port(localAddress.port)
+            ?.ipv4Port(localAddress.port)
+            ?.ipv6Port(localAddress.port)
 
         ServerBootstrap()
             .group(eventLoopGroup)
             .channelFactory(RakChannelFactory.server(NioDatagramChannel::class.java))
-            .option(RakChannelOption.RAK_ADVERTISEMENT, advertisement.toByteBuf())
+            .option(RakChannelOption.RAK_ADVERTISEMENT, advertisement?.toByteBuf() ?: org.cloudburstmc.protocol.bedrock.BedrockPong().edition("MCPE").motd("Lumina Proxy").version("1.21.130").protocolVersion(898).toByteBuf())
             .option(RakChannelOption.RAK_GUID, Random.nextLong())
             .childHandler(object : BedrockChannelInitializer<LuminaRelaySession.ServerSession>() {
                 override fun createSession0(peer: BedrockPeer, subClientId: Int): LuminaRelaySession.ServerSession {
@@ -90,7 +90,10 @@ class LuminaRelay(
             .bind()
             .awaitUninterruptibly()
             .also {
-                it.channel().pipeline().remove(RakServerRateLimiter.NAME)
+                val pipeline = it.channel().pipeline()
+                if (pipeline.context(RakServerRateLimiter.NAME) != null) {
+                    pipeline.remove(RakServerRateLimiter.NAME)
+                }
                 channelFuture = it
             }
 

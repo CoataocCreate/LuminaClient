@@ -21,7 +21,7 @@ class AutoCodecPacketListener(
             System.loadLibrary("lunaris")
         }
 
-        @JvmStatic external fun pickProtocolCodec(protocolVersion: Int): BedrockCodec
+        @JvmStatic external fun pickProtocolCodec(protocolVersion: Int): BedrockCodec?
     }
 
     private fun patchCodecIfNeeded(codec: BedrockCodec): BedrockCodec {
@@ -39,7 +39,7 @@ class AutoCodecPacketListener(
     override fun beforeClientBound(packet: BedrockPacket): Boolean {
         if (packet is RequestNetworkSettingsPacket) {
             val protocolVersion = packet.protocolVersion
-            val bedrockCodec = patchCodecIfNeeded(pickProtocolCodec(protocolVersion))
+            val bedrockCodec = patchCodecIfNeeded(pickProtocolCodec(protocolVersion) ?: org.cloudburstmc.protocol.bedrock.codec.v818.Bedrock_v818.CODEC)
             luminaRelaySession.server.codec = bedrockCodec
             luminaRelaySession.server.peer.codecHelper.apply {
                 itemDefinitions = Definitions.itemDefinitions

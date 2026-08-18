@@ -16,7 +16,7 @@ import org.cloudburstmc.protocol.bedrock.BedrockPong
  * @return A configured LuminaRelay instance
  */
 fun captureLuminaRelay(
-    advertisement: BedrockPong = LuminaRelay.createNativeAdvertisement(),
+    advertisement: BedrockPong? = LuminaRelay.createNativeAdvertisement(),
     localAddress: LuminaAddress = LuminaAddress("0.0.0.0", 19132),
     remoteAddress: LuminaAddress,
     onSessionCreated: LuminaRelaySession.() -> Unit
