@@ -1,3 +1,4 @@
+<img width="4907" height="1768" alt="lumina" src="https://github.com/user-attachments/assets/d12d4ba0-0680-42ff-a07d-61202cd4ec89" />
 # Lumina Client
 
 ![Lumina Client Logo](./images/lumina.png)  
