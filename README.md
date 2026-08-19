@@ -1,8 +1,7 @@
-<img width="4907" height="1768" alt="lumina" src="https://github.com/user-attachments/assets/d12d4ba0-0680-42ff-a07d-61202cd4ec89" />
 # Lumina Client
 
-![Lumina Client Logo](./images/lumina.png)  
-[![Download count](https://img.shields.io/github/downloads/TheProjectLumina/LuminaClient/total.svg)](https://github.com/TheProjectLumina/LuminaClient/releases)[![Netlify Status](https://api.netlify.com/api/v1/badges/679c08db-f713-4384-b052-1fd2f90d35f3/deploy-status)](https://app.netlify.com/projects/projectlumina/deploys) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.html)[![GitHub issues](https://img.shields.io/github/issues/TheProjectLumina/LuminaClient.svg) ](https://github.com/TheProjectLumina/LuminaClient/issues)[![GitHub stars](https://img.shields.io/github/stars/TheProjectLumina/LuminaClient.svg)](https://github.com/TheProjectLumina/LuminaClient/stargazers)[![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?logo=intellij-idea&logoColor=white)](https://www.jetbrains.com/idea/)[![Firebase](https://img.shields.io/badge/Firebase-039BE5?logo=Firebase&logoColor=white)](https://firebase.google.com/)[![Android](https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com/studio)
+<img width="1692" height="608" alt="Gemini_Generated_Image_faq4xofaq4xofaq4" src="https://github.com/user-attachments/assets/f61eead9-76af-4215-b183-9948c83d1021" />
+
 
 ## Introduction
 
